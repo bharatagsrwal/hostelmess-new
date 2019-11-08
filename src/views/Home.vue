@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Menu :menu="menuData" :isLoading="isLoading"/>
+    <Menu :menu="menuData"/>
   </div>
 </template>
 
@@ -13,7 +13,6 @@ export default {
     Menu
   },
   data: ()=>({
-    isLoading: true,
     menuData:{}
   }),
   methods:{
@@ -22,7 +21,8 @@ export default {
       fetch('https://hostelmess.iambharat.tk/api/today').then(res=>res.json()).then(data=>{
         this.menuData = data;
         console.log(data);
-        this.isLoading = false;
+      }).catch(e=>{
+        console.log(e)
       })
 
     }

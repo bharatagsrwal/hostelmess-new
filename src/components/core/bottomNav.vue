@@ -2,8 +2,8 @@
 <v-card class="white hidden-md-and-up" flat>
   <v-bottom-navigation
     :value="activeBtn"
-    grow
     app
+    grow
     shift
   > 
     
@@ -11,7 +11,7 @@
         v-for="(link, i) in links"
         :key="i"
         :to="link.to"
-        class="ml-0 google-font"
+        class="ml-0"
         style="text-transform: capitalize;" 
         text
         color="#ce1013"

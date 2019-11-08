@@ -1,23 +1,29 @@
 <template>
     <div class="Menu">
         <v-container fluid>
-        <div class="pt-12" v-if="Object.keys(menu).length==0">
-            <v-progress-circular
-            class=""
-            :size="50"
-            :width="5"
-            color="purple"
-            indeterminate
-            ></v-progress-circular>
+        <div class="pt-12 center-text" v-if="Object.keys(menu).length==0">
+            <v-layout
+                fill-height
+                align-center
+                justify-center
+                ma-0
+            >
+                <v-progress-circular :size="50"
+                    :width="5"
+                    indeterminate 
+                    :color="this.$vuetify.theme.dark?'':'#ce1013'"
+                >
+                </v-progress-circular>
+            </v-layout>
         </div>
         <div v-else>
-            <p class="text-center display-1 pt-5 font-weight-medium">{{ menu.day }}</p>
-            <MenuChips :menu="menu.breakfast.sort((a, b) => a.length - b.length)" name="Breakfast" :timing="menu.timings.breakfast"/>
-            <MenuChips :menu="menu.lunch.sort((a, b) => a.length - b.length)"  name="Lunch" :timing="menu.timings.lunch"/>
-            <MenuChips :menu="menu.snacks.sort((a, b) => a.length - b.length)" name="Snacks" :timing="menu.timings.snacks"/>
-            <MenuChips :menu="menu.dinner.sort((a, b) => a.length - b.length)" name="Dinner" :timing="menu.timings.dinner"/>
+            <p class="text-center display-1 font-weight-medium">{{ menu.day }}</p>
+            <MenuChips :menu="menu.breakfast" name="Breakfast" :timing="menu.timings.breakfast"/>
+            <MenuChips :menu="menu.lunch"  name="Lunch" :timing="menu.timings.lunch"/>
+            <MenuChips :menu="menu.snacks" name="Snacks" :timing="menu.timings.snacks"/>
+            <MenuChips :menu="menu.dinner" name="Dinner" :timing="menu.timings.dinner"/>
         </div>
-    </v-container>
+        </v-container>
     </div>
 </template>
 
@@ -27,8 +33,7 @@ import MenuChips from "@/components/menu/menuchips";
 export default {
     name:"Menu",
     props: {
-        menu:Object,
-        isLoading:Boolean
+        menu:Object
     },
     components:{
         MenuChips
