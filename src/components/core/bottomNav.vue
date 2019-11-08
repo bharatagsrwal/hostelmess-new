@@ -4,7 +4,6 @@
     :value="activeBtn"
     app
     grow
-    shift
   > 
     
     <v-btn

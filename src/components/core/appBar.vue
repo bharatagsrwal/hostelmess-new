@@ -5,7 +5,7 @@
       :color="this.$vuetify.theme.dark?'':'#ce1013'"
       dark
     >
-      <v-toolbar-title >Hostel Mess </v-toolbar-title>
+      <v-toolbar-title style="font-size:130%">Hostel <span class="font-weight-bold" :style="this.$vuetify.theme.dark?'color:red':''">Mess</span> </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
             v-for="(link, i) in links"

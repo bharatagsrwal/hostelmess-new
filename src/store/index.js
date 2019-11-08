@@ -7,8 +7,8 @@ export default new Vuex.Store({
   state: {
     items: [ 
       { text: 'Home', to: '/', icon:'mdi-home'},
-      { text: 'All', to: '/all', icon: 'mdi-assistant'},
-      { text: 'ByDate', to: '/byDate', icon:'mdi-account-settings'}
+      { text: 'All', to: '/all', icon: 'mdi-expand-all'},
+      { text: 'ByDate', to: '/byDate', icon:'mdi-calendar-today'}
     ]
   },
   getters:{

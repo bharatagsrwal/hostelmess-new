@@ -1,6 +1,6 @@
 <template>
     <div :class="[name, 'pb-2']">
-        <div class="text-left">{{ name }}</div>
+        <div class="text-left subtitle-2">{{ name }}</div>
        <v-chip-group
         multiple
         column
