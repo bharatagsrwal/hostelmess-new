@@ -7,7 +7,7 @@
         >
         <v-chip v-for="tag in menu" :key="tag" pill>
             <v-avatar left>
-              <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="trevor">
+              <img :src="image(tag)" alt="trevor">
             </v-avatar>
           {{ tag }}
         </v-chip>
@@ -23,6 +23,19 @@ export default {
         menu:Array,
         name:String,
         timing:String
+    },
+    methods:{
+        image(pic) {
+            console.log(pic);
+            pic =  pic.split(' ').join('_')
+            
+            console.log(pic);
+          try{
+                return require('@/assets/foodImages/'+pic+'.jpg')
+          }catch(e){
+               return require('@/assets/logo.png')
+          }
+      },
     }
 
 }
