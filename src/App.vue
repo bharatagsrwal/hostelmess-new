@@ -28,6 +28,9 @@ export default {
   data: () => ({
     //
   }),
+  beforeCreate(){
+      this.$vuetify.theme.dark  = localStorage.getItem('darkMode');
+  }
 };
 </script>
 <style>

@@ -45,13 +45,15 @@ export default {
     methods: {
         darkMode(){
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+            if(localStorage)
+            localStorage.setItem('darkMode',this.$vuetify.theme.dark);
         },
         goTO (e, item) {
             e.stopPropagation()
             if (item.to || !item.href) return
             this.$vuetify.goTo(item.href)
         },
-    }
+    },
 }
 </script>
 
