@@ -1,7 +1,7 @@
 <template>
     <div class="Menu">
         <v-container fluid>
-        <div class="pt-12 center-text" v-if="Object.keys(menu).length==0">
+        <div class="pt-12 center-text" v-if="check()">
             <v-layout
                 fill-height
                 align-center
@@ -37,6 +37,11 @@ export default {
     },
     components:{
         MenuChips
+    },
+    methods:{
+        check(){
+            return Object.keys(this.menu).length==0 || this.menu == undefined;
+        }
     }
 
 }

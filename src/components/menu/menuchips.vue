@@ -1,11 +1,11 @@
 <template>
     <div :class="[name, 'pb-2']">
-        <div class="text-left subtitle-2">{{ name }}</div>
+        <div class="text-left subtitle-2">{{ name }} <span class="grey--text text--darken-1">({{ timing }})</span></div>
        <v-chip-group
         multiple
         column
         >
-        <v-chip v-for="tag in menu" :key="tag" pill>
+        <v-chip v-for="(tag,index) in menu" :key="index" :href="'https://www.google.com/search?q='+tag" target="_blank" pill>
             <v-avatar left>
               <img :src="image(tag)" alt="trevor">
             </v-avatar>
@@ -26,14 +26,11 @@ export default {
     },
     methods:{
         image(pic) {
-            console.log(pic);
-            pic =  pic.split(' ').join('_')
-            
-            console.log(pic);
+            pic =  pic.split(' ').join('_');
           try{
-                return require('@/assets/foodImages/'+pic+'.jpg')
+                return require('@/assets/foodImages/'+pic+'.jpg');
           }catch(e){
-               return require('@/assets/logo.png')
+               return require('@/assets/logo.png');
           }
       },
     }

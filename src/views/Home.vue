@@ -20,7 +20,6 @@ export default {
       this.menuData = {};
       fetch('https://hostelmess.iambharat.tk/api/today').then(res=>res.json()).then(data=>{
         this.menuData = data;
-        console.log(data);
       }).catch(e=>{
         console.log(e)
       })

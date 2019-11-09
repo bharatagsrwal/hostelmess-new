@@ -47,7 +47,14 @@
             text
             @click="dialog = false"
           >
-            I accept
+          Allow
+          </v-btn>
+          <v-btn
+            color="error"
+            text
+            @click="dialog = false"
+          >
+            close
           </v-btn>
         </v-card-actions>
       </v-card>
