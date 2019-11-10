@@ -46,7 +46,7 @@ export default {
         darkMode(){
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark
             if(localStorage)
-            localStorage.setItem('darkMode',this.$vuetify.theme.dark);
+              localStorage.setItem('darkMode',this.$vuetify.theme.dark);
         },
         goTO (e, item) {
             e.stopPropagation()

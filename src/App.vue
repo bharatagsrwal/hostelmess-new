@@ -28,8 +28,10 @@ export default {
   data: () => ({
     //
   }),
+  methods:{
+  },
   beforeCreate(){
-      this.$vuetify.theme.dark  = localStorage.getItem('darkMode');
+      (localStorage.getItem('darkMode') == 'true')?this.$vuetify.theme.dark  = true:this.$vuetify.theme.dark  = false;
   }
 };
 </script>
