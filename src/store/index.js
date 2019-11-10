@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    notificationPermisson:false,
     items: [ 
       { text: 'Home', to: '/', icon:'mdi-home'},
       { text: 'All', to: '/all', icon: 'mdi-expand-all'},
@@ -17,6 +18,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setNotification: (state, payload) => (state.notificationPermisson = payload),
   },
   actions: {
   },

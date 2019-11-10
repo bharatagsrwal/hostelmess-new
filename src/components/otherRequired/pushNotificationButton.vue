@@ -35,7 +35,7 @@
                 <p>04:20 PM => Snacks</p>
                 <p>07:20 PM => Dinner</p>
             </div>
-            <p><span class="font-weight-bold text--primary">Status: </span>Not Granted Yet</p>
+            <p><span class="font-weight-bold text--primary">Status: </span>{{ status }}</p>
         </v-card-text>
 
         <v-divider></v-divider>
@@ -45,9 +45,9 @@
           <v-btn
             color="primary"
             text
-            @click="dialog = false"
+            @click="requestPermission"
           >
-          Allow
+          {{ buttonText }}
           </v-btn>
           <v-btn
             color="error"
@@ -63,10 +63,38 @@
 </template>
 
 <script>
+// import{ mapMutations } from 'vuex';
   export default {
     name:"PushNoti",
-    data : () =>({
-        dialog: false,
-    }),
+    data(){
+      return {
+        dialog : false,
+        status : "Not Granted Yet",
+        buttonText : "Allow"
+      }
+    },
+    // TODO: Notification to be implemented
+    methods:{
+      // checkPer(result){
+      //   this.buttonText = result
+      //   if (result == "granted") {
+      //     this.status = "You Granted Permission";
+      //   } else if (result == "denied") {
+      //     this.status = "You Denied Permission";
+      //   } else {
+      //     this.buttonText = " 
+      //     this.status = "Please Allow Us to send Notifications for Better Experience";
+      //   }
+      // },
+      requestPermission(){
+        // Notification.requestPermission().then((result)=>{
+        //   this.checkPer(result);
+        // })
+        alert("Notification will be implemented");
+      },
+    },
+    mounted(){
+      // this.checkPer(Notification.permission)
+    }
   }
 </script>
