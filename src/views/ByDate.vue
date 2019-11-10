@@ -25,7 +25,24 @@
         </v-date-picker>
       </v-dialog>
       <div v-if="notAvailable" class="text-center">
-        <p>Select a Date</p>
+        <v-img
+              :src="check()"
+              :lazy-src="check()"
+              max-height="150"
+              contain
+              class="transparent mb-5"
+            >
+            <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-row>
+                  </template>
+            </v-img>
+        <p>{{ error }}</p>
       </div>
       <Menu v-else :menu="menuData"/>
 </div>
@@ -41,22 +58,45 @@ export default {
     Menu
   },
    data: () => ({
-      date: null,
+      date: new Date().toISOString().substr(0, 10),
       modal: false,
       menuData:{},
       notAvailable:true,
-      error:"",
+      error:"Waiting for instructions...",
+      ty:"",
     }),
     methods:{
+      check(){
+        if(this.ty==null || this.ty.length ==0){
+          console.log(this.ty)
+          console.log("NULL")
+          return require("@/assets/waiting.svg")
+        }else{
+          console.log(this.ty)
+          console.log("NOT NULL")
+          return require("@/assets/something.svg")
+        }
+      },
       postDate(event){
+        this.ty = ""
         this.notAvailable = false;
-        event.save(this.date)
         this.menuData = {};
-        fetch('https://hostelmess.iambharat.tk/api/byDate/'+this.date).then(res=>res.json()).then(data=>{
-          this.menuData = data;
-        }).catch(e=>{
-          this.error = e;
-        })
+        event.save(this.date)
+        try{
+          fetch('https://hostelmess.iambharat.tk/api/byDate/'+this.date).then(res=>res.json()).then(data=>{
+            console.log(data);
+            if(data)
+            this.menuData = data;
+          }).catch(e=>{
+            this.error = "Something went wrong, please try again or check your Internet Connection";
+            this.notAvailable = true;
+            this.ty = e;
+          })
+        }catch(e){
+          this.error = "Failed to fetch Data, Check your Internet connection and try again";
+          this.notAvailable = true;
+          this.ty = e;
+        }
       }
     }
 }

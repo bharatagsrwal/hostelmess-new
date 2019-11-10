@@ -10,7 +10,7 @@ export default new Vuex.Store({
       { text: 'Home', to: '/', icon:'mdi-home'},
       { text: 'All', to: '/all', icon: 'mdi-expand-all'},
       { text: 'ByDate', to: '/byDate', icon:'mdi-calendar-today'},
-      { text: 'About', to: '/about', icon:'mdi-toc'}
+      { text: 'About', to: '/about', icon:'mdi-chart-bubble'}
     ]
   },
   getters:{
