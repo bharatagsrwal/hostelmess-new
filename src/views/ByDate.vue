@@ -20,7 +20,7 @@
         </template>
         <v-date-picker color="#ce1013" v-model="date" scrollable>
           <v-spacer></v-spacer>
-          <v-btn text color="primary" @click="modal = false">Cancel</v-btn>
+          <v-btn text color="error" @click="modal = false">Cancel</v-btn>
           <v-btn text color="primary" @click="postDate($refs.dialog)">OK</v-btn>
         </v-date-picker>
       </v-dialog>
