@@ -13,7 +13,8 @@ export default {
     Menu
   },
   data: ()=>({
-    menuData:{}
+    menuData:{},
+    error:""
   }),
   methods:{
     dataLoad(){
@@ -21,7 +22,8 @@ export default {
       fetch('https://hostelmess.iambharat.tk/api/today').then(res=>res.json()).then(data=>{
         this.menuData = data;
       }).catch(e=>{
-        console.log(e)
+        // console.log(e)
+        this.error = e;
       })
 
     }

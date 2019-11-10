@@ -9,7 +9,11 @@ const routes = [
     name: 'home',
     component: () => import('../views/Home.vue')
   },
-  
+  {
+    path: '/home',
+    name: 'homeRoute',
+    component: () => import('../views/Home.vue')
+  },
   {
     path: '/all',
     name: 'all',
@@ -19,7 +23,12 @@ const routes = [
     path: '/byDate',
     name: 'byDate',
     component: () => import('../views/ByDate.vue')
-  }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('../views/About.vue')
+  },
 ]
 
 const router = new VueRouter({
