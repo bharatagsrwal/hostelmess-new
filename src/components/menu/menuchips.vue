@@ -7,7 +7,7 @@
         >
         <v-chip v-for="(tag,index) in menu" :key="index" :href="'https://www.google.com/search?q='+tag" target="_blank" pill>
             <v-avatar left>
-              <img :src="image(tag)" alt="trevor">
+              <img :src="image(tag)" :alt="tag">
             </v-avatar>
           {{ tag }}
         </v-chip>

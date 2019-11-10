@@ -62,20 +62,15 @@ export default {
       modal: false,
       menuData:{},
       notAvailable:true,
-      error:"Waiting for instructions...",
+      error:"Waiting for date...",
       ty:"",
     }),
     methods:{
       check(){
-        if(this.ty==null || this.ty.length ==0){
-          console.log(this.ty)
-          console.log("NULL")
+        if(this.ty==null || this.ty.length ==0)
           return require("@/assets/waiting.svg")
-        }else{
-          console.log(this.ty)
-          console.log("NOT NULL")
+        else
           return require("@/assets/something.svg")
-        }
       },
       postDate(event){
         this.ty = ""
@@ -84,9 +79,7 @@ export default {
         event.save(this.date)
         try{
           fetch('https://hostelmess.iambharat.tk/api/byDate/'+this.date).then(res=>res.json()).then(data=>{
-            console.log(data);
-            if(data)
-            this.menuData = data;
+              this.menuData = data;
           }).catch(e=>{
             this.error = "Something went wrong, please try again or check your Internet Connection";
             this.notAvailable = true;
