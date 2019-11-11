@@ -1,4 +1,4 @@
-# te
+# Hostel Mess
 
 ## Project setup
 ```
