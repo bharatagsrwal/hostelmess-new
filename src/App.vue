@@ -4,7 +4,7 @@
     <v-content>
       <v-container fluid>
         <v-slide-y-reverse-transition>
-          <router-view />
+          <router-view v-show="show" />
       </v-slide-y-reverse-transition>
       </v-container >
     </v-content>
@@ -26,8 +26,11 @@ export default {
   },
 
   data: () => ({
-    //
+    show : false,
   }),
+  created(){
+   this.show = true
+  },
   methods:{
   },
   beforeCreate(){
