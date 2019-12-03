@@ -5,20 +5,19 @@
       <v-container fluid>
         <v-slide-y-reverse-transition>
           <router-view v-show="show" />
-      </v-slide-y-reverse-transition>
-      </v-container >
+        </v-slide-y-reverse-transition>
+      </v-container>
     </v-content>
-    <BottomNav/>
+    <BottomNav />
   </v-app>
 </template>
 
 <script>
-import AppBar from './components/core/appBar';
-import BottomNav from './components/core/bottomNav';
-
+import AppBar from "./components/core/appBar";
+import BottomNav from "./components/core/bottomNav";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
     AppBar,
@@ -26,18 +25,18 @@ export default {
   },
 
   data: () => ({
-    show : false,
+    show: false
   }),
-  created(){
-   this.show = true
+  created() {
+    this.show = true;
   },
-  methods:{
-  },
-  beforeCreate(){
-      (localStorage.getItem('darkMode') == 'true')?this.$vuetify.theme.dark  = true:this.$vuetify.theme.dark  = false;
+  methods: {},
+  beforeCreate() {
+    localStorage.getItem("darkMode") == "true"
+      ? (this.$vuetify.theme.dark = true)
+      : (this.$vuetify.theme.dark = false);
   }
 };
 </script>
 <style>
-
 </style>
